@@ -17,3 +17,4 @@ jobs:
                 number1: 10
                 number2: 4
             - run: echo result is ${{ steps.docker-action-step.outputs.result }}
+            - run: cat $GITHUB_WORKSPACE/containerOutput.txt
