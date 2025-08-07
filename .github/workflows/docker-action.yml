@@ -1,0 +1,19 @@
+name: js-action
+
+on:
+    push:
+
+
+jobs:
+    test-docker-action:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v4
+            - run: chmod +x entrypoint.sh
+            - uses: ./
+              id: docker-action-step
+              with:
+                number1: 10
+                number2: 4
+            - run: echo result is ${{ steps.docker-action-step.outputs.result }}
